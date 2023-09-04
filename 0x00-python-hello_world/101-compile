@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Compile python script
+python3 -m compileall $PYFILE
+
+# Get destination file name
+DESTFILE="${PYFILE%.*}.pyc"
+
+# Get destination file name
+FILENAME=$(ls -p __pycache__ | grep -v /)
+
+# Move compiled file to current dir
+mv __pycache__/$FILENAME $DESTFILE
+
+# Remove the __pycache__ directory
+rm -rf __pycache__
