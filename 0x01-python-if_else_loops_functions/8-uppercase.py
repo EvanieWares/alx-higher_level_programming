@@ -3,7 +3,7 @@
 def uppercase(str):
     upper = ""
     for i in str:
-        if ord(i) > 96 and ord(i) < 124:
+        if ord(i) > 96 and ord(i) < 123:
             upper = upper + "{:c}".format(ord(i) - 32)
             continue
         upper = upper + i
