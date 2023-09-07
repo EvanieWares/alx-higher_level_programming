@@ -1,9 +1,20 @@
 #!/usr/bin/python3
-from sys import argv
+import sys
+import argparse
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("numbers", nargs="+", type=int)
+    args = parser.parse_args()
+    numbers = args.numbers
+
+    total = 0
+    for number in numbers:
+        total += number
+
+    print(total)
+
 
 if __name__ == "__main__":
-    result = 0
-    if len(argv) != 1:
-        for i in range(1, len(argv)):
-            result = result + int(argv[i])
-        print("{}".format(result))
+    main()
