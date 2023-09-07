@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import sys
 
-def main():
+if __name__ == "__main__":
     argv = sys.argv[1:]
     argc = len(argv)
     print(argc, end=" ")
@@ -11,6 +11,3 @@ def main():
         print("argument" + ("s:" if argc > 1 else ":"))
         for i, arg in enumerate(argv, start=1):
             print("{}: {}".format(i, arg))
-
-if __name__ == "__main__":
-    main()
