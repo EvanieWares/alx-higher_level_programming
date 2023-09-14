@@ -4,57 +4,52 @@
 /**
  * print_python_list - prints python list
  * @p: python object
-*/
+ */
 void print_python_list(PyObject *p)
 {
-	PyObject *iterator;
+	PyObject *size, *allocated;
 
-	iterator = PyObject_GetIter(p);
+	size = PyLong_FromSize_t(PyList_GET_SIZE(p));
+	allocated = PyLong_FromSize_t(PyList_GET_ALLOC(p));
 
 	printf("[*] Python list info\n");
-	printf("[*] Size of the Python List = %zd\n", PyList_Size(p));
-	printf("[*] Allocated = %zd\n", ((PyVarObject *)p)->ob_size);
+	printf("[*] Size of the Python List = %ld\n", PyLong_AsLong(size));
+	printf("[*] Allocated = %ld\n", PyLong_AsLong(allocated));
 
-	while (PyObject *item = PyIter_Next(iterator))
+	for (Py_ssize_t i = 0; i < PyList_GET_SIZE(p); i++)
 	{
-		if (PyBytes_Check(item))
-		{
-			printf("Element %zd: bytes\n", PyList_GET_SIZE(p) - 1);
-			print_python_bytes(item);
-		}
-		else
-		{
-			printf("Element %zd: %s\n", PyList_GET_SIZE(p) - 1, item->ob_type->tp_name);
-		}
-	}
+		PyObject *item = PyList_GetItem(p, i);
 
-	Py_DECREF(iterator);
+		printf("Element %ld: %s\n", i, item->ob_type->tp_name);
+	}
 }
 
 /**
  * print_python_bytes - prints python bytes
  * @p: python object
-*/
+ */
 void print_python_bytes(PyObject *p)
 {
-	char *string = PyBytes_AsString(p);
-
 	if (!PyBytes_Check(p))
 	{
 		printf("[ERROR] Invalid Bytes Object\n");
 		return;
 	}
 
+	Py_ssize_t size = PyBytes_GET_SIZE(p);
+
 	printf("[.] bytes object info\n");
-	printf("  size: %zd\n", PyBytes_GET_SIZE(p));
+	printf("  size: %ld\n", size);
 
-	if (string)
-		printf("  trying string: %s\n", string);
+	if (size >= 5)
+	{
+		printf("  trying string: %s\n", PyBytes_AS_STRING(p));
+	}
 
-	printf("  first %d bytes: ", sizeof(char) * 10);
-
-	for (int i = 0; i < 10; i++)
-		printf("%02x ", ((char *)p)->ob_sval[i]);
-
+	printf("  first %ld bytes: ", size >= 10 ? 10 : size);
+	for (int i = 0; i < size && i < 10; i++)
+	{
+		printf("%02x ", (unsigned char)PyBytes_AS_STRING(p)[i]);
+	}
 	printf("\n");
 }
