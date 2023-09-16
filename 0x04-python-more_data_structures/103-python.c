@@ -23,12 +23,12 @@ void print_python_list(PyObject *p)
 	for (i = 0; i < size; i++)
 	{
 		const char *tp_name = list->ob_item[i]->ob_type->tp_name;
+
 		printf("Element %lu: %s\n", i, tp_name);
 		if (strcmp(tp_name, "bytes") == 0)
 		{
 			print_python_bytes(list->ob_item[i]);
 		}
-		
 	}
 }
 
@@ -41,7 +41,7 @@ void print_python_bytes(PyObject *p)
 	int i;
 	Py_ssize_t size;
 	PyBytesObject *bytes = (PyBytesObject *) p;
-	
+
 	if (!PyBytes_Check(bytes))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
