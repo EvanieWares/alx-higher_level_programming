@@ -44,7 +44,7 @@ void print_python_bytes(PyObject *p)
 
 	if (!PyBytes_Check(bytes))
 	{
-		printf("  [ERROR] Invalid Bytes Object\n");
+		dprintf(STDERR_FILENO, "  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 
@@ -58,7 +58,7 @@ void print_python_bytes(PyObject *p)
 		printf("  trying string: %s\n", bytes->ob_sval);
 	}
 
-	printf("  first %ld bytes: ", size >= 10 ? 10 : ++size);
+	printf("  first %ld bytes: ", size >= 10 ? 10 : size);
 	for (i = 0; i < size && i < 10; i++)
 	{
 		printf("%02x ", (unsigned char)bytes->ob_sval[i]);
