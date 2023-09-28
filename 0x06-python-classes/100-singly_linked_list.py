@@ -122,6 +122,8 @@ class SinglyLinkedList:
         current = self.head
         result = ""
         while current is not None:
-            result += str(current.data) + "\n"
+            if result != "":
+                result += "\n"
+            result += str(current.data)
             current = current.next_node
         return result
