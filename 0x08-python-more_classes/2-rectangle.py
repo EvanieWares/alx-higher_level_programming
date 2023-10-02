@@ -21,23 +21,20 @@ class Rectangle:
             width (int, optional): The width of the rectangle. Defaults to 0.
             height (int, optional): The height of the rectangle. Defaults to 0.
         """
-        self.__height = height
-        self.__width = width
+        self.height = height
+        self.width = width
 
     @property
     def width(self):
         """
-        Get the width of the rectangle.
-
-        Returns:
-            int: The width of the rectangle.
+        int: The width of the rectangle.
         """
         return self.__width
 
     @width.setter
     def width(self, value):
         """
-        Set the width of the rectangle.
+        Sets the width of the rectangle.
 
         Args:
             value (int): The width value to set.
@@ -55,17 +52,14 @@ class Rectangle:
     @property
     def height(self):
         """
-        Get the height of the rectangle.
-
-        Returns:
-            int: The height of the rectangle.
+        int: The height of the rectangle.
         """
         return self.__height
 
     @height.setter
     def height(self, value):
         """
-        Set the height of the rectangle.
+        Sets the height of the rectangle.
 
         Args:
             value (int): The height value to set.
@@ -79,3 +73,23 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def area(self):
+        """
+        Calculates the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.width * self.height
+
+    def perimeter(self):
+        """
+        Calculates the perimeter of the rectangle.
+
+        Returns:
+            int: The perimeter of the rectangle.
+        """
+        if self.width == 0 or self.height == 0:
+            return 0
+        return 2 * (self.width + self.height)
