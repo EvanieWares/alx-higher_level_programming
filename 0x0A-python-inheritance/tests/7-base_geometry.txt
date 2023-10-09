@@ -1,0 +1,25 @@
+# Test cases for BaseGeometry class
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+# Test area() method (not implemented)
+>>> geometry = BaseGeometry()
+>>> geometry.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+# Test integer_validator() method (valid integer)
+>>> geometry.integer_validator("width", 10)
+
+# Test integer_validator() method (non-integer)
+>>> geometry.integer_validator("height", "not_an_integer")
+Traceback (most recent call last):
+    ...
+TypeError: height must be an integer
+
+# Test integer_validator() method (negative value)
+>>> geometry.integer_validator("length", -5)
+Traceback (most recent call last):
+    ...
+ValueError: length must be greater than 0
