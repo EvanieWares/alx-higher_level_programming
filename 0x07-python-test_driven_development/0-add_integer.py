@@ -1,4 +1,10 @@
-# 0-add_integer.py
+"""
+0-add_integer.py
+
+Implements integer addition
+Usage:
+	add_integer(3, 7)
+"""
 
 def add_integer(a, b=98):
     """
