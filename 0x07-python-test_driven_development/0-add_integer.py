@@ -3,7 +3,7 @@
 
 Implements integer addition
 Usage:
-	add_integer(3, 7)
+add_integer(3, 7)
 """
 
 
