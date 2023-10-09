@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 # 5-base_geometry
-# Implements an empty class
+"""Implements an empty class"""
+
 
 class BaseGeometry:
-    # An empty class
+    """An empty class"""
     pass
