@@ -1,0 +1,33 @@
+# Test cases for MyList class
+
+>>> MyList = __import__("1-my_list").MyList
+
+# Test sorting an empty list
+>>> empty_list = MyList([])
+>>> empty_list.print_sorted()
+[]
+
+# Test sorting a list with one element
+>>> single_element_list = MyList([42])
+>>> single_element_list.print_sorted()
+[42]
+
+# Test sorting a list with multiple elements
+>>> unsorted_list = MyList([5, 2, 9, 1, 5, 6])
+>>> unsorted_list.print_sorted()
+[1, 2, 5, 5, 6, 9]
+
+# Test sorting a list with negative numbers
+>>> negative_numbers_list = MyList([-3, -5, -1, -10, -2])
+>>> negative_numbers_list.print_sorted()
+[-10, -5, -3, -2, -1]
+
+# Test sorting a list with duplicates
+>>> duplicate_numbers_list = MyList([3, 3, 1, 2, 2, 1])
+>>> duplicate_numbers_list.print_sorted()
+[1, 1, 2, 2, 3, 3]
+
+# Test sorting a large list
+>>> large_list = MyList(list(range(1000, 0, -1)))
+>>> large_list.print_sorted()
+[1, 2, 3, 4, 5, ..., 999, 1000]
