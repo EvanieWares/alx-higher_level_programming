@@ -36,3 +36,9 @@ True
 >>> the_list = MyList()
 >>> str(the_list)
 '[]'
+
+# Test if append is working
+>>> append_list = MyList()
+>>> append_list.append(8)
+>>> print(append_list)
+[8]
