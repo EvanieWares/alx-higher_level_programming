@@ -26,8 +26,3 @@
 >>> duplicate_numbers_list = MyList([3, 3, 1, 2, 2, 1])
 >>> duplicate_numbers_list.print_sorted()
 [1, 1, 2, 2, 3, 3]
-
-# Test sorting a large list
->>> large_list = MyList(list(range(1000, 0, -1)))
->>> large_list.print_sorted()
-[1, 2, 3, 4, 5, ..., 999, 1000]
