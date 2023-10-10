@@ -10,5 +10,10 @@ def read_file(filename=""):
     Args:
     filename (string): name of the file to read
     """
-    with open(filename) as file:
-        print(file.read())
+    try:
+        with open(filename, mode='r', encoding='utf-8') as file:
+            print(file.read())
+    except:
+        pass
+
+read_file("text.txt")
