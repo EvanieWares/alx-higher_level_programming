@@ -26,3 +26,13 @@
 >>> duplicate_numbers_list = MyList([3, 3, 1, 2, 2, 1])
 >>> duplicate_numbers_list.print_sorted()
 [1, 1, 2, 2, 3, 3]
+
+# Test if MyList inherits from list
+>>> my_list = MyList()
+>>> isinstance(my_list, list)
+True
+
+# Test __str__
+>>> the_list = MyList()
+>>> str(the_list)
+'[]'
