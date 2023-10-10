@@ -23,3 +23,51 @@ TypeError: height must be an integer
 Traceback (most recent call last):
     ...
 ValueError: length must be greater than 0
+
+# Test integer_validator() method (zero)
+>>> geometry.integer_validator("length", 0)
+Traceback (most recent call last):
+    ...
+ValueError: length must be greater than 0
+
+# Test integer_validator() method (tuple)
+>>> geometry.integer_validator("length", (9,))
+Traceback (most recent call last):
+    ...
+TypeError: length must be an integer
+
+# Test integer_validator() method (list)
+>>> geometry.integer_validator("length", [2])
+Traceback (most recent call last):
+    ...
+TypeError: length must be an integer
+
+# Test integer_validator() method (boolean)
+>>> geometry.integer_validator("length", True)
+Traceback (most recent call last):
+    ...
+TypeError: length must be an integer
+
+# Test integer_validator() method (set)
+>>> geometry.integer_validator("length", {2, 5})
+Traceback (most recent call last):
+    ...
+TypeError: length must be an integer
+
+# Test integer_validator() method (None)
+>>> geometry.integer_validator("length", None)
+Traceback (most recent call last):
+    ...
+TypeError: length must be an integer
+
+# Test integer_validator without arguments
+>>> geometry.integer_validator()
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+# Test integer_validator with one argument
+>>> geometry.integer_validator("length")
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
