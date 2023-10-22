@@ -37,6 +37,5 @@ class Student:
         d = self.__dict__
         if attrs is not None:
             st_dict = {key: d[key] for key in attrs if key in d}
-            if bool(st_dict):
-                return st_dict
+            return st_dict
         return d
