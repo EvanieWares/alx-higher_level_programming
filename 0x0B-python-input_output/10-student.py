@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# 10-student
 """Implements a class Student"""
 
 
@@ -23,11 +24,19 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """
         Retrieves a dictionary representation of a Student instance
+
+        Args:
+        attrs (list): a list of attributes
 
         Return:
         A dictionary representation of a Student instance
         """
-        return self.__dict__
+        d = self.__dict__
+        if attrs is not None:
+            st_dict = {key: d[key] for key in attrs if key in d}
+            if bool(st_dict):
+                return st_dict
+        return d
