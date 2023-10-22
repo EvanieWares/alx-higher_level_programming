@@ -14,6 +14,6 @@ def save_to_json_file(my_obj, filename):
     my_obj (object): The object to write to file
     filename (string): Name of the file
     """
-    import json
+    to_json_string = __import__("3-to_json_string").to_json_string
     with open(file=filename, mode='w', encoding="utf-8") as file:
-        file.write(json.dumps(my_obj))
+        file.write(to_json_string(my_obj))

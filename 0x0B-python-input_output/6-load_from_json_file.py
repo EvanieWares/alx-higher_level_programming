@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 5-save_to_json_file
+# 6-load_from_json_file
 """
 Implements a function that creates an Object from a "JSON file"
 """
