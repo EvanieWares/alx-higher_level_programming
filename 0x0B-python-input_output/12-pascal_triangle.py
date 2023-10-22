@@ -17,14 +17,16 @@ def pascal_triangle(n):
     Return:
     Lists of integers representing the Pascal's triangle of n:
     """
+    if n <= 0:
+        return []
+
     pascal = []
-    for i in range(1, n + 1):
-        list = []
-        for j in range(i):
-            if j == 0 or j == i - 1:
-                list.append(1)
-            else:
-                prev_list = pascal[i - 2]
-                list.append(prev_list[j] + prev_list[j - 1])
-        pascal.append(list)
+    for i in range(n):
+        row = [1]
+        if pascal:
+            prev_row = pascal[-1]
+            for j in range(len(prev_row) - 1):
+                row.append(prev_row[j] + prev_row[j + 1])
+            row.append(1)
+        pascal.append(row)
     return pascal
