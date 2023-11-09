@@ -26,8 +26,8 @@ class Rectangle:
             width (int, optional): The width of the rectangle. Defaults to 0.
             height (int, optional): The height of the rectangle. Defaults to 0.
         """
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -147,14 +147,14 @@ class Rectangle:
     def bigger_or_equal(rect_1, rect_2):
         """
         Return the bigger rectangle between the two
-        
+
         Args:
         rect_1 (object): rectangle 1
         rect_2 (object): rectangle 2
-        
+
         Raises:
         TypeError: if rect_1 and rect_2 are not instances of Rectangle
-        
+
         Returns:
         The bigger rectangle
         """
