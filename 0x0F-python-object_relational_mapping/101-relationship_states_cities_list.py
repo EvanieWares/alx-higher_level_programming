@@ -27,4 +27,4 @@ if __name__ == '__main__':
     for state in states_cities:
         print(state.id, state.name, sep=": ")
         for city in state.cities:
-            print("    {}: {}".format(city.id, city.name))
+            print("\t{}: {}".format(city.id, city.name))
