@@ -15,11 +15,11 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine, autoflush=False)
     session = Session()
-    all_cities = (
+    cities_and_states = (
         session.query(State.name, City.id, City.name)
         .filter(State.id == City.state_id)
         .order_by(City.id)
     )
 
-    for city in all_cities:
-        print("{}: ({}) {}".format(city[0], city[1], city[2]))
+    for state, city_id, city_name in cities_and_states:
+        print("{}: ({}) {}".format(state, city_id, city_name))
