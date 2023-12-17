@@ -19,8 +19,7 @@ if __name__ == '__main__':
 
     states_cities = (
         session.query(State)
-        .join(State.cities)
-        .order_by(State.id, City.id)
+        .order_by(State.id)
         .all()
     )
 
