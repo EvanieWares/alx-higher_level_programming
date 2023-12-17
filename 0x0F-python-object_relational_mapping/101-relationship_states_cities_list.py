@@ -7,7 +7,7 @@ import sys
 from relationship_state import Base, State
 from relationship_city import City
 from sqlalchemy import (create_engine)
-from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
     username, password, db_name = sys.argv[1:4]
@@ -25,6 +25,6 @@ if __name__ == '__main__':
     )
 
     for state in states_cities:
-        print(f'{state.id}: {state.name}')
+        print(state.id, state.name, sep=": ")
         for city in state.cities:
-            print(f'    {city.id}: {city.name}')
+            print("    {}: {}".format(city.id, city.name))
