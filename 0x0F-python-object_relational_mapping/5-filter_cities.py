@@ -17,8 +17,8 @@ if __name__ == "__main__":
         charset="utf8",
     )
     cursor = db.cursor()
-    query = """SELECT cities.name FROM cities INNER JOIN states ON 
-    states.id=cities.state_id WHERE states.name=%s ORDER BY cities.id"""
+    query = """SELECT cities.name FROM cities INNER JOIN states ON
+     states.id=cities.state_id WHERE states.name=%s ORDER BY cities.id"""
     cursor.execute(query, (state_name,))
     results = cursor.fetchall()
     cities = [row[0] for row in results]
