@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 """
-Implements a script that takes in an argument and displays all values in the
-states table of hbtn_0e_0_usa where name matches the argument.
+Implements a script that lists all cities from the database hbtn_0e_4_usa.
 """
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    username, password, database, state_name = sys.argv[1:5]
+    username, password, database = sys.argv[1:4]
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -17,7 +16,8 @@ if __name__ == "__main__":
         charset="utf8",
     )
     cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id".format(state_name)
+    query = """SELECT cities.id, cities.name, states.name FROM cities 
+    INNER JOIN states ON states.id=cities.state_id ORDER BY cities.id"""
     cursor.execute(query)
     results = cursor.fetchall()
     for row in results:
