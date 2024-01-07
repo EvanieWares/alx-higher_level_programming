@@ -6,15 +6,10 @@ http://0.0.0.0:5000/search_user with the letter as a parameter.
 import sys
 import requests
 
+if __name__ == '__main__':
+    url = "http://0.0.0.0:5000/search_user"
+    query = sys.argv[1] if len(sys.argv) == 2 else ""
 
-def json_api(url, query):
-    """
-    Sends a POST request to a URL with a letter as a parameter
-
-    :param url: The url
-    :param query: The letter to search
-    :return: None
-    """
     data = dict(q=query)
     r = requests.post(url, data)
     try:
@@ -25,12 +20,3 @@ def json_api(url, query):
             print('[{id}] {name}'.format(**json_response))
     except ValueError:
         print('Not a valid JSON')
-
-
-if __name__ == '__main__':
-    url_string = "http://0.0.0.0:5000/search_user"
-    query_string = ""
-    if len(sys.argv) > 1:
-        query_string = sys.argv[1]
-
-    json_api(url_string, query_string)
