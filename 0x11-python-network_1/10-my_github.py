@@ -9,7 +9,6 @@ import requests
 if __name__ == '__main__':
     username, password = sys.argv[1:3]
     url = f"https://api.github.com/user"
-    data = dict(username=username, auth=password)
     r = requests.get(url, auth=(username, password))
     if r.status_code == 200:
         json_response = r.json()
